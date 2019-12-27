@@ -37,8 +37,9 @@ public class MuletestOperations {
   }
 
   @OutputResolver(output = MyDataSenseResolver.class) 
-  public void create(@TypeResolver(MyDataSenseResolver.class) String type,
+  public Object create(@TypeResolver(MyDataSenseResolver.class) String type,
       @ParameterGroup(name = "Operation Name") @MetadataKeyId(DataSenseResolver.class) SelectorGroup selector) {
+    return new MyCustomObject();
   }
 
   /**

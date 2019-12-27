@@ -11,16 +11,16 @@ import org.mule.runtime.api.metadata.resolving.InputTypeResolver;
 import org.mule.runtime.api.metadata.resolving.OutputTypeResolver;
 
 public class MyDataSenseResolver
-        implements InputTypeResolver<String>, OutputTypeResolver<String>, AttributesTypeResolver<String> {
+        implements InputTypeResolver<String>, OutputTypeResolver<String>{
 
     @Override
     public String getResolverName() {
-        return "MyDataSenseResolver";
+        return MyDataSenseResolver.class.toString();
     }
 
     @Override
     public String getCategoryName() {
-        return "MyDataSenseResolver";
+        return "createCategory";
     }
 
     @Override
@@ -31,15 +31,5 @@ public class MyDataSenseResolver
     @Override
     public MetadataType getOutputType(MetadataContext metadataContext, String entityKeyId) {
         return metadataContext.getTypeLoader().load(MyCustomObject.class);
-    }
-
-    @Override
-    public MetadataType getAttributesType(MetadataContext metadataContext, String entityKeyId)
-            throws MetadataResolvingException, ConnectionException {
-        if ("Book_id".equals(entityKeyId)) {
-            return metadataContext.getTypeLoader().load(MyCustomObject.class);
-        }
-
-        return metadataContext.getTypeBuilder().nullType().build();
     }
 }
