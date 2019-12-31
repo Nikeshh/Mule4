@@ -12,12 +12,12 @@ public class DataSenseResolver implements TypeKeysResolver {
 
     @Override
     public String getResolverName() {
-        return "MyDataSenseResolver";
+        return DataSenseResolver.class.toString();
     }
             
     @Override
     public String getCategoryName() {
-        return "MyDataSenseResolver";
+        return "createCategory";
     }
 
     @Override
